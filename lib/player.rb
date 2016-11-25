@@ -2,7 +2,7 @@ require_relative 'game'
 
 class Player
 
-STARTING_HP = 100
+STARTING_HP = 30
 DAMAGE_VALUE = 10
 
 attr_reader :name,:hp
