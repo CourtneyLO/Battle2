@@ -17,4 +17,8 @@ class Game
     @opposing_turn = @players.last
   end
 
+  def lost?
+    @opposing_turn.hp == 0
+  end
+
 end
