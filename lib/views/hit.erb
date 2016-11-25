@@ -1,4 +1,4 @@
-<%= @game.players.first.name %> attacked <%= @game.players.last.name %> who now has <%= @game.players.last.hp %> HP
+<%= @game.opposing_turn.name %> attacked <%= @game.current_turn.name %> who now has <%= @game.current_turn.hp %> HP
 
 <form action='/play'>
 <input type="submit" value="Next turn">
