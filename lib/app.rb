@@ -23,7 +23,7 @@ class Battle < Sinatra::Base
 
   get '/hit' do
     @game = $game
-    @game.attack(@game.players.last)
+    @game.attack
     @game.switch_turns
     erb :hit
   end
