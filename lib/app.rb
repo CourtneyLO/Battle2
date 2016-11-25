@@ -24,8 +24,17 @@ class Battle < Sinatra::Base
   get '/hit' do
     @game = $game
     @game.attack
-    @game.switch_turns
+    if @game.lost?
+      redirect '/lost'
+    else
+      @game.switch_turns
+    end
     erb :hit
+  end
+
+  get '/lost' do
+    @game = $game
+    erb :lost
   end
 
   # start the server if ruby file executed directly
