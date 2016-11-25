@@ -25,7 +25,4 @@ describe Game do
 
   end
 
-  context 'switch turns' do
-  end
-
 end
