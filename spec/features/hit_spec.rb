@@ -17,14 +17,8 @@ feature 'Hit' do
   context 'lose game' do
 
     scenario 'should display losing method when player HP is zero' do
-      click_button("Hit")
-      click_button("Next turn")
-      click_button("Hit")
-      click_button("Next turn")
-      click_button("Hit")
-      click_button("Next turn")
-      click_button("Hit")
-      click_button("Next turn")
+      4.times { click_button("Hit")
+      click_button("Next turn") }
       click_button("Hit")
       expect(page).to have_content("TRUMP YOU ARE FIRED")
     end
