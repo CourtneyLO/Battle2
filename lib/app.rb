@@ -3,7 +3,9 @@ require_relative 'player'
 
 class Battle < Sinatra::Base
 
-  enable :sessions
+  before do
+    @game = Game.instance
+  end
 
   get '/' do
     erb :index
@@ -12,17 +14,15 @@ class Battle < Sinatra::Base
   post '/names' do
     player_1 = Player.new(params[:player_1])
     player_2 = Player.new(params[:player_2])
-    $game = Game.new(player_1, player_2)
+    @game = Game.create(player_1, player_2)
     redirect '/play'
   end
 
   get '/play' do
-    @game = $game
     erb :play
   end
 
   get '/hit' do
-    @game = $game
     @game.attack
     if @game.lost?
       redirect '/lost'
@@ -33,7 +33,6 @@ class Battle < Sinatra::Base
   end
 
   get '/lost' do
-    @game = $game
     erb :lost
   end
 
